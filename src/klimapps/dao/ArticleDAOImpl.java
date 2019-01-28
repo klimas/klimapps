@@ -41,8 +41,6 @@ public class ArticleDAOImpl implements ArticleDAO {
     public void deleteArticle(Integer articleId) {
 
         Session session = sessionFactory.getCurrentSession();
-//
-//        session.delete(articleId);
 
         Query query = session.createQuery("delete from Article where articleid = :id").
                 setParameter("id", articleId);

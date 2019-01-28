@@ -25,9 +25,6 @@ public class StorageController {
 
         CreateStorage.saveStorage(storage);
 
-        System.out.println("SAVE TO DB!");
-        System.out.println("Storage: " + storage.getStorageName() + ", localization: " + storage.getLocalization() + ", id: " + storage.getStorageid());
-
         return "storage-confirmation";
     }
 }

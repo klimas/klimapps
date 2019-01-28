@@ -11,21 +11,4 @@ public class HelloWorldController {
         return "main-menu";
     }
 
-/*    @RequestMapping("/form")
-    public String formRequest () {
-        return "form-request";
-    }
-
-    @RequestMapping("/formProcess")
-    public String formProcess () {
-        return "form-process";
-    }
-
-    @RequestMapping("/formProcessTwo")
-    public String formProcessTwo (@RequestParam("studentName") String name, Model model) {
-
-        model.addAttribute("message", name.toUpperCase());
-
-        return "form-process";
-    }*/
 }
