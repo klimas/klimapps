@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="istack-commons-runtime-3.0.7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/istack-commons-runtime-3.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jandex-2.0.5.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist-3.24.0-GA.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

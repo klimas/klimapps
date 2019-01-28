@@ -1,0 +1,31 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="klimapps:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/klimapps_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="klimapps/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="klimapps" />
+          <element id="javaee-facet-classes" facet="klimapps/web/Web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-4.3.18.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-4.3.18.RELEASE" />
+          <element id="library" level="project" name="c3p0-0.9.5.2" />
+          <element id="library" level="project" name="istack-commons-runtime-3.0.7 (2)" />
+          <element id="library" level="project" name="hibernate-commons-annotations-5.1.0.Final" />
+          <element id="library" level="project" name="javax.servlet.jsp.jstl-1.2.1" />
+          <element id="library" level="project" name="javax.persistence-api-2.2" />
+          <element id="library" level="project" name="jboss-logging-3.3.2.Final" />
+          <element id="library" level="project" name="jaxb-api-2.3.1" />
+          <element id="library" level="project" name="byte-buddy-1.9.5" />
+          <element id="library" level="project" name="istack-commons-runtime-3.0.7" />
+          <element id="library" level="project" name="hibernate-commons-annotations-5.1.0.Final (2)" />
+          <element id="library" level="project" name="byte-buddy-1.9.5 (2)" />
+          <element id="library" level="project" name="javax.persistence-api-2.2 (2)" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="klimapps/web/Web" />
+    </root>
+  </artifact>
+</component>
