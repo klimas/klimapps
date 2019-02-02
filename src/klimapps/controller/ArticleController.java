@@ -73,5 +73,6 @@ public class ArticleController {
         model.addAttribute("articles", theArticles);
 
         return "list-articles";
+//        test
     }
 }
