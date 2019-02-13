@@ -1,6 +1,8 @@
 package klimapps.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -19,6 +21,9 @@ public class Storage {
 
     @Column(name = "localization")
     private String localization;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "storage")
+    private Set<StoredArticle> storedArticleSet = new HashSet<>(0);
 
     public Storage() {
     }
@@ -50,6 +55,14 @@ public class Storage {
 
     public void setLocalization(String localization) {
         this.localization = localization;
+    }
+
+    public Set<StoredArticle> getStoredArticleSet() {
+        return storedArticleSet;
+    }
+
+    public void setStoredArticleSet(Set<StoredArticle> storedArticleSet) {
+        this.storedArticleSet = storedArticleSet;
     }
 
 }

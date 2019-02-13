@@ -1,6 +1,8 @@
 package klimapps.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -22,6 +24,10 @@ public class Article {
 
     @Column(name = "internal_name")
     private String internalName;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "article")
+    private Set<StoredArticle> storedArticleSet = new HashSet<>(0);
+
 
     public Article() {
     }
@@ -62,5 +68,13 @@ public class Article {
 
     public void setInternalName(String internalName) {
         this.internalName = internalName;
+    }
+
+    public Set<StoredArticle> getStoredArticleSet() {
+        return storedArticleSet;
+    }
+
+    public void setStoredArticleSet(Set<StoredArticle> storedArticleSet) {
+        this.storedArticleSet = storedArticleSet;
     }
 }

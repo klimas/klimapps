@@ -11,5 +11,8 @@
 <br><br>
 <%--TO DO : implement storage/list in StorageController--%>
 <a href="storage/list">Show storage</a>
+<br><br>
+<%--TO DO : implement storage/list in StorageController--%>
+<a href="storedarticle/list">Add article to storage</a>
 </body>
 </html>
