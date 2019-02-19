@@ -12,24 +12,24 @@
 <div id="wrapper">
     <div id="cotnainer">
         <h2>Provide article details</h2>
-
+        <form:errors path="storedarticle.*"/>
         <form:form action="saveStoredarticle" modelAttribute="storedarticle" method="POST">
-            <form:hidden path="storedarticleid"/>
+            <%--<form:hidden path="storedarticleid"/>--%>
 
             <table>
                 <tbody>
                 <tr>
-                    <td><label>Article:</label></td>
-                    <td><form:select path="article">
-                        <form:option value="0" label="Select"/>
-                        <form:options items="${articles}" itemValue="articleid" itemLabel="name"/>
-                    </form:select>
-                    </td>
+                    <td><label>Storage Id:</label></td>
+                        <%--<td><label>Main</label></td>--%>
+                    <td><label><form:input value="1" path="storage.storageid"/></label></td>
                 </tr>
                 <tr>
-                    <td><label>Storage:</label></td>
-                    <td><label>Main</label></td>
-                        <%--<td><label><form:input path="storage"/></label></td>--%>
+                    <td><label>Article:</label></td>
+                    <td><form:select path="article.articleid">
+                        <form:option value="0" label="Select"/>
+                        <form:options items="${articles}" itemValue="articleid" itemLabel="articleName"/>
+                    </form:select>
+                    </td>
                 </tr>
                 <tr>
                     <td><label>Amount:</label></td>
@@ -39,10 +39,6 @@
                     <td><label>Purchase price:</label></td>
                     <td><label><form:input path="purchasePrice"/></label></td>
                 </tr>
-                    <%--                <tr>
-                                        <td><label>Article internal name:</label></td>
-                                        <td><label><form:input path="internalName"/></label></td>
-                                    </tr>--%>
                 <tr>
                     <td><label></label></td>
                     <td><label><input type="submit" value="Submit"/></label></td>
@@ -53,7 +49,7 @@
         </form:form>
         <div style="clear: both"></div>
         <p>
-            <a href="${pageContext.request.contextPath}/article/list">Back to article list</a>
+            <a href="${pageContext.request.contextPath}/storedarticle/list">Back to storedarticle list</a>
         </p>
 
     </div>

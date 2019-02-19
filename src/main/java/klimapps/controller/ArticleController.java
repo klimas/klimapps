@@ -50,7 +50,7 @@ public class ArticleController {
         articleDAO.saveArticle(article);
 
         System.out.println("SAVE TO DB!");
-        System.out.println("Article name: " + article.getName() + ", EAN: " + article.getEan() + ", int. name: " + article.getInternalName());
+        System.out.println("Article name: " + article.getArticleName() + ", EAN: " + article.getEan() + ", int. name: " + article.getInternalName());
 
         return "redirect:/article/list";
     }

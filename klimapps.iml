@@ -29,7 +29,12 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
-        <sourceRoots />
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/web/resources" />
+          <root url="file://$MODULE_DIR$/src/klimapps/resources" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+        </sourceRoots>
       </configuration>
     </facet>
   </component>
@@ -122,5 +127,6 @@
     <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.1.4.RELEASE" level="project" />
     <orderEntry type="library" name="hibernate-jpa-2.1-api-1.0.0.Final" level="project" />
+    <orderEntry type="library" name="spring-boot-devtools-2.1.2.RELEASE" level="project" />
   </component>
 </module>

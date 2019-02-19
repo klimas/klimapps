@@ -14,11 +14,11 @@ public class StoredArticle {
     @GeneratedValue(strategy = IDENTITY)
     private Integer storedarticleid;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "storage_id")
     private Storage storage;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "article_id")
     private Article article;
 

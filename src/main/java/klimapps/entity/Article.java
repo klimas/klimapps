@@ -17,7 +17,7 @@ public class Article {
     private int articleid;
 
     @Column(name = "name")
-    private String name;
+    private String articleName;
 
     @Column(name = "EAN")
     private Integer ean;
@@ -25,15 +25,15 @@ public class Article {
     @Column(name = "internal_name")
     private String internalName;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "article")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "article")
     private Set<StoredArticle> storedArticleSet = new HashSet<>(0);
 
 
     public Article() {
     }
 
-    public Article(String name, Integer ean, String internalName) {
-        this.name = name;
+    public Article(String articleName, Integer ean, String internalName) {
+        this.articleName = articleName;
         this.ean = ean;
         this.internalName = internalName;
     }
@@ -46,12 +46,12 @@ public class Article {
         this.articleid = articleid;
     }
 
-    public String getName() {
-        return name;
+    public String getArticleName() {
+        return articleName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setArticleName(String articleName) {
+        this.articleName = articleName;
     }
 
     public Integer getEan() {

@@ -22,7 +22,7 @@ public class Storage {
     @Column(name = "localization")
     private String localization;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "storage")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "storage")
     private Set<StoredArticle> storedArticleSet = new HashSet<>(0);
 
     public Storage() {

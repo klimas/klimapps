@@ -5,8 +5,8 @@
     <display-name>spring-mvc-crud-demo</display-name>
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>main-menu.jsp</welcome-file>
+        <welcome-file>main-menu.html</welcome-file>
     </welcome-file-list>
 
     <servlet>

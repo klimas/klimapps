@@ -31,18 +31,18 @@
                 <th>Edit</th>
                 <th>Remove</th>
             </tr>
-            <c:forEach var="tempArticle" items="${articles}">
+            <c:forEach var="storedArticle" items="${articles}">
                 <c:url var="updateLink" value="/article/showFormForUpdate">
-                    <c:param name="articleId" value="${tempArticle.articleid}"/>
+                    <c:param name="articleId" value="${storedArticle.articleid}"/>
                 </c:url>
                 <c:url var="deleteLink" value="/article/deleteArticle">
-                    <c:param name="articleId" value="${tempArticle.articleid}"/>
+                    <c:param name="articleId" value="${storedArticle.articleid}"/>
                 </c:url>
 
                 <tr>
-                    <td>${tempArticle.name}</td>
-                    <td>${tempArticle.ean}</td>
-                    <td>${tempArticle.internalName}</td>
+                    <td>${storedArticle.name}</td>
+                    <td>${storedArticle.ean}</td>
+                    <td>${storedArticle.internalName}</td>
                     <td><a href="${updateLink}">Edit</a></td>
                     <td><a href="${deleteLink}"
                            onclick="if(!(confirm('Are you sure to delete this article?'))) return false"

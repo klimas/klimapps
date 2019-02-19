@@ -1,5 +1,6 @@
 package klimapps.dao;
 
+import klimapps.entity.Article;
 import klimapps.entity.Storage;
 import klimapps.entity.StoredArticle;
 import org.hibernate.Session;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -31,8 +33,14 @@ public class StoredarticleDAOImpl implements StoredarticleDAO {
     @Transactional
     public void saveStoredarticle(StoredArticle storedarticle) {
         Session session = sessionFactory.getCurrentSession();
-        Storage storage = session.load(Storage.class, 1);
+        /*To jest niepotrzebne - działa bez tego bloku, ale to tak trochę dla poprawności*/
+        Article article = session.load(Article.class, storedarticle.getArticle().getArticleid());
+        Storage storage = session.load(Storage.class, storedarticle.getStorage().getStorageid());
+        storedarticle.setArticle(article);
         storedarticle.setStorage(storage);
+        /* KONIEC BLOKU*/
+
+        storedarticle.setDateIn(new Date());
         session.saveOrUpdate(storedarticle);
 
     }

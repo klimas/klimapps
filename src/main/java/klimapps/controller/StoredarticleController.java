@@ -6,6 +6,7 @@ import klimapps.entity.StoredArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,26 +24,39 @@ public class StoredarticleController {
     @Autowired
     private ArticleDAO articleDAO;
 
+    @GetMapping(value = "/showFormForAdd")
+    public String getArticle2storageForm(Model model) {
 
-/*    @RequestMapping("/showForm")
-    public String showForm(Model model) {
-
-        Article article = new Article();
-        model.addAttribute("article", article);
-
-        return "storedarticle-form";
-    }*/
-
-    @GetMapping("/showFormForAdd")
-    public String showFormForAdd(Model model) {
-
-        StoredArticle storedArticle = new StoredArticle();
         model.addAttribute("articles", articleDAO.getArticles());
-        model.addAttribute("storedarticle", storedArticle);
-
+        model.addAttribute("storedarticle", new StoredArticle());
         return "article2storage-form";
     }
-/*
+
+    @PostMapping("/saveStoredarticle")
+    public String submitArticle2storageForm(@ModelAttribute("storedarticle") StoredArticle storedArticle, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "article2storage-form";
+        }
+        storedarticleDAO.saveStoredarticle(storedArticle);
+
+        System.out.println("Nowy wpis ID: " + storedArticle.getStoredarticleid() + ", Storage name: " + storedArticle.getStorage().getStorageName() + ", article name: " + storedArticle.getArticle().getArticleName());
+
+        return "redirect:/storedarticle/list";
+
+    }
+
+    @RequestMapping("/list")
+    public String listStoredarticles(Model model) {
+
+        List<StoredArticle> storedArticles = storedarticleDAO.getStoredarticles();
+
+        model.addAttribute("storedarticles", storedArticles);
+
+        return "list-storedarticles";
+    }
+
+    /*
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("articleId") int articleId, Model model) {
 
@@ -64,24 +78,4 @@ public class StoredarticleController {
         return "redirect:/article/list";
     }*/
 
-    @PostMapping("/saveStoredarticle")
-    public String saveStoredarticle(@ModelAttribute("storedarticle") StoredArticle storedArticle) {
-
-        storedarticleDAO.saveStoredarticle(storedArticle);
-
-        System.out.println("SAVE TO DB!");
-        System.out.println("ID: " + storedArticle.getStoredarticleid() + ", Storage: " + storedArticle.getStorage().getStorageName() + ", article name: " + storedArticle.getArticle().getName());
-
-        return "redirect:/article/list";
-    }
-
-    @RequestMapping("/list")
-    public String listStoredarticles(Model model) {
-
-        List<StoredArticle> storedArticles = storedarticleDAO.getStoredarticles();
-
-        model.addAttribute("storedarticles", storedArticles);
-
-        return "list-storedarticles";
-    }
 }
