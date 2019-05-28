@@ -20,7 +20,7 @@
                 <tbody>
                 <tr>
                     <td><label>Article name:</label></td>
-                    <td><label><form:input path="name"/></label></td>
+                    <td><label><form:input path="articleName"/></label></td>
                 </tr>
                 <tr>
                     <td><label>EAN:</label></td>
