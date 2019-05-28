@@ -7,7 +7,7 @@
 <body>
 <h2>Please give your name</h2>
 
-<form:form action="processForm" modelAttribute="storage">
+<form:form action="saveStorage" modelAttribute="storage">
     Storage name: <form:input path="storageName"/>
     <br><br>
     Localization: <form:input path="localization"/>

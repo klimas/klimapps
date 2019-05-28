@@ -20,8 +20,13 @@
                 <tbody>
                 <tr>
                     <td><label>Storage Id:</label></td>
-                        <%--<td><label>Main</label></td>--%>
-                    <td><label><form:input value="1" path="storage.storageid"/></label></td>
+                        <%--                        &lt;%&ndash;<td><label>Main</label></td>&ndash;%&gt;
+                                            <td><label><form:input value="1" path="storage.storageid"/></label></td>--%>
+                    <td><form:select path="storage.storageid">
+                        <%--<form:option value="0" label="Select"/>--%>
+                        <form:options items="${storages}" itemValue="storageid" itemLabel="storageName"/>
+                    </form:select>
+                    </td>
                 </tr>
                 <tr>
                     <td><label>Article:</label></td>

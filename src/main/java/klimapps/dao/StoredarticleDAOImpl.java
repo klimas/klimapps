@@ -1,7 +1,5 @@
 package klimapps.dao;
 
-import klimapps.entity.Article;
-import klimapps.entity.Storage;
 import klimapps.entity.StoredArticle;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,12 +31,6 @@ public class StoredarticleDAOImpl implements StoredarticleDAO {
     @Transactional
     public void saveStoredarticle(StoredArticle storedarticle) {
         Session session = sessionFactory.getCurrentSession();
-        /*To jest niepotrzebne - działa bez tego bloku, ale to tak trochę dla poprawności*/
-        Article article = session.load(Article.class, storedarticle.getArticle().getArticleid());
-        Storage storage = session.load(Storage.class, storedarticle.getStorage().getStorageid());
-        storedarticle.setArticle(article);
-        storedarticle.setStorage(storage);
-        /* KONIEC BLOKU*/
 
         storedarticle.setDateIn(new Date());
         session.saveOrUpdate(storedarticle);

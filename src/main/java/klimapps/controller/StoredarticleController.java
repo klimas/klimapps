@@ -1,6 +1,7 @@
 package klimapps.controller;
 
 import klimapps.dao.ArticleDAO;
+import klimapps.dao.StorageDAO;
 import klimapps.dao.StoredarticleDAO;
 import klimapps.entity.StoredArticle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,14 @@ public class StoredarticleController {
     @Autowired
     private ArticleDAO articleDAO;
 
+    @Autowired
+    private StorageDAO storageDAO;
+
     @GetMapping(value = "/showFormForAdd")
     public String getArticle2storageForm(Model model) {
 
         model.addAttribute("articles", articleDAO.getArticles());
+        model.addAttribute("storages", storageDAO.getStorages());
         model.addAttribute("storedarticle", new StoredArticle());
         return "article2storage-form";
     }

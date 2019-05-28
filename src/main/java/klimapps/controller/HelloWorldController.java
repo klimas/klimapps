@@ -11,4 +11,8 @@ public class HelloWorldController {
         return "main-menu";
     }
 
+    @RequestMapping("/import")
+    public String importFile() {
+        return "import";
+    }
 }

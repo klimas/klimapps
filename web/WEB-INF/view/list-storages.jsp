@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <title>List Articles</title>
+    <title>List Storages</title>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
     <link type="text/css" rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/add-form-style.css">
@@ -14,38 +14,36 @@
 
 <div id="wrapper">
     <div id="header">
-        <h2>ARTICLE LIST</h2>
+        <h2>STORAGE LIST</h2>
     </div>
 </div>
 
 <div id="container">
     <div id="content">
-        <input type="button" value="Add article"
+        <input type="button" value="Add storage"
                onclick="window.location.href='showFormForAdd'; return false;"
                class="add-button"/>
         <table>
             <tr>
-                <th>Article Name</th>
-                <th>EAN</th>
-                <th>Internal name</th>
+                <th>Storage Name</th>
+                <th>Localization</th>
                 <th>Edit</th>
                 <th>Remove</th>
             </tr>
-            <c:forEach var="storedArticle" items="${articles}">
-                <c:url var="updateLink" value="/article/showFormForUpdate">
-                    <c:param name="articleId" value="${storedArticle.articleid}"/>
+            <c:forEach var="storage" items="${storages}">
+                <c:url var="updateLink" value="/storage/showFormForUpdate">
+                    <c:param name="storageId" value="${storage.storageid}"/>
                 </c:url>
-                <c:url var="deleteLink" value="/article/deleteArticle">
-                    <c:param name="articleId" value="${storedArticle.articleid}"/>
+                <c:url var="deleteLink" value="/storage/deleteStorage">
+                    <c:param name="storageId" value="${storage.storageid}"/>
                 </c:url>
 
                 <tr>
-                    <td>${storedArticle.articleName}</td>
-                    <td>${storedArticle.ean}</td>
-                    <td>${storedArticle.internalName}</td>
+                    <td>${storage.storageName}</td>
+                    <td>${storage.localization}</td>
                     <td><a href="${updateLink}">Edit</a></td>
                     <td><a href="${deleteLink}"
-                           onclick="if(!(confirm('Are you sure to delete this article?'))) return false"
+                           onclick="if(!(confirm('Are you sure to delete this storage?'))) return false"
                     >Delete</a></td>
                 </tr>
             </c:forEach>
