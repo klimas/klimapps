@@ -8,9 +8,18 @@
 
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/klimapps?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">abc123</property>
+
+
+        <!--<property name="connection.url">jdbc:mysql://localhost:3306/klimapps?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>-->
+        <!--<property name="connection.username">root</property>-->
+        <!--<property name="connection.password">abc123</property>-->
+
+
+        <property name="connection.url">jdbc:mysql://mysql-286762.vipserv.org/jetpack_klimapps?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
+        <property name="connection.username">jetpack_klimapps</property>
+        <property name="connection.password">aogGWezIBi6gLjTRuFtn51LNmWaV5N5f</property>
+
+
         <!--
                 <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
                 <property name="connection.url">jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true</property>
