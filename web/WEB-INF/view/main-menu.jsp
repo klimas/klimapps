@@ -9,6 +9,8 @@
 <br><br>
 <a href="article/list">Show articles</a>
 <br><br>
+<a href="ciuch/list">Pokaż ciuchy</a>
+<br><br>
 <a href="storage/list">Show storage</a>
 <br><br>
 <a href="storedarticle/list">Show stored articles</a>

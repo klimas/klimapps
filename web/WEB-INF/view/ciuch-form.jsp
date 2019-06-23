@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Article Form</title>
+    <title>Ciuch Form</title>
 
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
     <link type="text/css" rel="stylesheet"
@@ -11,24 +11,24 @@
 <body>
 <div id="wrapper">
     <div id="cotnainer">
-        <h2>Provide article details</h2>
+        <h2>Wprowadź nowy ciuch</h2>
 
-        <form:form action="saveArticle" modelAttribute="article" method="POST">
-            <form:hidden path="articleid"/>
+        <form:form action="saveCiuch" modelAttribute="ciuch" method="POST">
+            <form:hidden path="ciuchid"/>
 
             <table>
                 <tbody>
                 <tr>
-                    <td><label>Article name:</label></td>
-                    <td><label><form:input path="articleName"/></label></td>
+                    <td><label>Nazwa:</label></td>
+                    <td><label><form:input path="nazwa"/></label></td>
                 </tr>
                 <tr>
-                    <td><label>EAN:</label></td>
-                    <td><label><form:input path="ean"/></label></td>
+                    <td><label>Index:</label></td>
+                    <td><label><form:input path="index"/></label></td>
                 </tr>
                 <tr>
-                    <td><label>Article internal name:</label></td>
-                    <td><label><form:input path="internalName"/></label></td>
+                    <td><label>Status:</label></td>
+                    <td><label><form:input path="status"/></label></td>
                 </tr>
                 <tr>
                     <td><label></label></td>
@@ -40,7 +40,7 @@
         </form:form>
         <div style="clear: both"></div>
         <p>
-            <a href="${pageContext.request.contextPath}/article/list">Back to article list</a>
+            <a href="${pageContext.request.contextPath}/ciuch/list">Wróć do listy ciuchów</a>
         </p>
 
     </div>
