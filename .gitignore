@@ -2,3 +2,7 @@
 .idea/dataSources.local.xml
 .idea/workspace.xml
 out/
+/.idea/dataSources/c4b45923-f1c5-4539-aac2-0f4d0e6a7d87.xml
+src/main/resources/
+src/test/
+target/
