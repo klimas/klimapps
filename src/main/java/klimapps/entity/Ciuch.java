@@ -17,7 +17,6 @@ public class Ciuch {
     @Column(name = "nazwa")
     private String nazwa;
 
-
     @Column(name = "ciuch_index")
     private String index;
 

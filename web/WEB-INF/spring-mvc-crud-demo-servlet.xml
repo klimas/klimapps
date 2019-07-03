@@ -32,14 +32,16 @@
     <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <!--        <property name="jdbcUrl"
-                          value="jdbc:mysql://localhost:3306/lumpex?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"/>-->
-        <property name="jdbcUrl"
-                  value="jdbc:mysql://mysql-286762.vipserv.org/jetpack_klimapps?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"/>
+
+        <property name="jdbcUrl" value="jdbc:mysql://mysql-286762.vipserv.org/jetpack_klimapps?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"/>
+
+        <!--<property name="jdbcUrl"-->
+                  <!--value="jdbc:mysql://mysql-286762.vipserv.org?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"/>-->
         <property name="user" value="jetpack_klimapps"/>
         <property name="password" value="aogGWezIBi6gLjTRuFtn51LNmWaV5N5f"/>
-        <!--        <property name="user" value="root"/>
-                <property name="password" value="abc123"/>-->
+
+
+
 
         <!-- these are connection pool properties for C3P0 -->
         <property name="initialPoolSize" value="5"/>
