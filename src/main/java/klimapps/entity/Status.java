@@ -5,7 +5,7 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "status", schema = "lumpex")
+@Table(name = "status", schema = "jetpack_klimapps")
 public class Status {
 
 

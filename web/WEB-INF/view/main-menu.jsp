@@ -7,6 +7,13 @@
 <h2>Ciuchy version 1.0</h2>
 <hr>
 <br><br>
+
+<br><br>
+<a href="ciuch/showFormForAdd">Dodaj ciuch</a>
+<br><br>
+
+
+
 <%--<a href="article/list">Show articles</a>--%>
 <br><br>
 <a href="ciuch/list">Pokaż ciuchy</a>

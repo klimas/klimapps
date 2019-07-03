@@ -5,25 +5,28 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "ciuchy", schema = "lumpex")
+@Table(name = "ciuchy", schema = "jetpack_klimapps")
 public class Ciuch {
 
 
     @Id
     @Column(name = "idciuchy")
     @GeneratedValue(strategy = IDENTITY)
-    private Integer ciuchid;
+    private int ciuchid;
 
     @Column(name = "nazwa")
     private String nazwa;
 
-
-    @Column(name = "index")
+    @Column(name = "ciuch_index")
     private String index;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+   // @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade=CascadeType.ALL)
+
     @JoinColumn(name = "id_statusid")
     private Status status;
+
+
 
     @Column(name = "nr_listu")
     private Integer nrListu;
@@ -69,6 +72,13 @@ public class Ciuch {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+
+    public void setCiuchid(int ciuchid) {
+        this.ciuchid = ciuchid;
+    }
+
+
 
     public Integer getNrListu() {
         return nrListu;

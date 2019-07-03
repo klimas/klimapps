@@ -50,7 +50,7 @@ public class CiuchController {
         ciuchDAO.saveCiuch(ciuch);
 
         System.out.println("SAVE TO DB!");
-//        System.out.println("Ciuch name: " + ciuch.getCiuchName() + ", EAN: " + ciuch.getEan() + ", int. name: " + ciuch.getInternalName());
+        System.out.println("Ciuch name: " + ciuch.getNazwa() + ", Index: " + ciuch.getIndex() );
 
         return "redirect:/ciuch/list";
     }
