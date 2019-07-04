@@ -74,4 +74,14 @@ public class CiuchController {
 
         return "list-ciuchy";
     }
+
+    @RequestMapping("/wyslijNaMagazyn")
+    public String listStoredarticles(Model model) {
+
+        List<Ciuch> ciuchy = ciuchDAO.getPrzygotowaneCiuchy();
+
+        model.addAttribute("ciuchyPrzygotowane", ciuchy);
+
+        return "wyslij-na-magazyn";
+    }
 }

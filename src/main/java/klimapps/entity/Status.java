@@ -5,9 +5,14 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "status", schema = "lumpex")
+@Table(name = "status", schema = "jetpack_klimapps")
 public class Status {
 
+    public static final int PRZYGOTOWANY = 1;
+    public static final int WYSLANO_NA_MAGAZYN = 2;
+    public static final int MAGAZYN = 3;
+    public static final int SPRZEDANE = 4;
+    public static final int WYSLANE = 5;
 
     @Id
     @Column(name = "statusid")
@@ -40,4 +45,5 @@ public class Status {
     public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
     }
+
 }

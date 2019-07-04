@@ -5,7 +5,7 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "ciuchy", schema = "lumpex")
+@Table(name = "ciuchy", schema = "jetpack_klimapps")
 public class Ciuch {
 
 
@@ -18,7 +18,7 @@ public class Ciuch {
     private String nazwa;
 
 
-    @Column(name = "index")
+    @Column(name = "ciuch_index")
     private String index;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -27,7 +27,6 @@ public class Ciuch {
 
     @Column(name = "nr_listu")
     private Integer nrListu;
-
 
     @Column(name = "wymiary_paczki")
     private String wymiaryPaczki;

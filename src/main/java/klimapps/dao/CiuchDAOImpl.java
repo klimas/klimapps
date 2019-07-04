@@ -1,6 +1,7 @@
 package klimapps.dao;
 
 import klimapps.entity.Ciuch;
+import klimapps.entity.Status;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -23,6 +24,18 @@ public class CiuchDAOImpl implements CiuchDAO {
         Session currentSession = sessionFactory.getCurrentSession();
 
         Query<Ciuch> query = currentSession.createQuery("from Ciuch order by ciuchid", Ciuch.class);
+
+        return query.list();
+    }
+
+    @Override
+    @Transactional
+    public List<Ciuch> getPrzygotowaneCiuchy() {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query<Ciuch> query = currentSession.createQuery("from Ciuch where status.id =:status order by ciuchid", Ciuch.class)
+                .setParameter("status", Status.PRZYGOTOWANY);
 
         return query.list();
     }

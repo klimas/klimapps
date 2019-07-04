@@ -13,7 +13,7 @@
 <br><br>
 <%--<a href="storage/list">Show storage</a>--%>
 <br><br>
-<a href="storedarticle/list">Show stored articles</a>
+<a href="ciuch/wyslijNaMagazyn">Wyslij na magazyn</a>
 <br><br>
 <%--<a href="storedarticle/showFormForAdd">Add article to storage</a>--%>
 <br><br>
