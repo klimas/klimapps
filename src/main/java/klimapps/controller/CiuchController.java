@@ -74,4 +74,8 @@ public class CiuchController {
 
         return "list-ciuchy";
     }
+    @RequestMapping("/")
+    public String showMainMenu() {
+        return "main-menu";
+    }
 }

@@ -31,6 +31,11 @@
                 <tr>
                     <td><label>Status</label></td>
                     <td><label><form:input path="status"/></label></td>
+                 <%--<td>  <select name="status">--%>
+                     <%--<option>1</option>--%>
+                 <%--</select>--%>
+                 </td>
+
                 </tr>
                 <tr>
                     <td><label>Nr listu</label></td>
