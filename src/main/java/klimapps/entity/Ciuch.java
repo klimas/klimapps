@@ -1,5 +1,7 @@
 package klimapps.entity;
 
+import klimapps.IndexPrefix;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -24,8 +26,11 @@ public class Ciuch {
     @JoinColumn(name = "id_statusid")
     private Status status;
 
+
+
     @Column(name = "nr_listu")
     private Integer nrListu;
+
 
     @Column(name = "wymiary_paczki")
     private String wymiaryPaczki;
@@ -102,6 +107,7 @@ public class Ciuch {
 
 
     public Ciuch() {
+        this.index= IndexPrefix.dateToIndexPrefix();
     }
 
 

@@ -84,4 +84,9 @@ public class CiuchController {
 
         return "wyslij-na-magazyn";
     }
+
+    @RequestMapping("/")
+    public String showMainMenu() {
+        return "main-menu";
+    }
 }

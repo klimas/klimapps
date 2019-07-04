@@ -60,10 +60,15 @@ public class CiuchDAOImpl implements CiuchDAO {
 
         query.executeUpdate();
     }
+    // znaleźć ostatni wpis do bazy !!!!, SELECT last albo coś takiego
+
+
 
     @Override
     @Transactional
     public Ciuch getCiuch(int ciuchId) {
+
+        // znaleźć ostatni wpis do bazy !!!!
 
         Session session = sessionFactory.getCurrentSession();
 

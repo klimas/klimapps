@@ -23,6 +23,9 @@
         <input type="button" value="Dodaj ciuch"
                onclick="window.location.href='showFormForAdd'; return false;"
                class="add-button"/>
+        <input type="button" value="Menu"
+               onclick="window.location.href='${pageContext.request.contextPath}/'; return false;"
+               class="add-button"/>
         <table>
             <tr>
                 <th>Nazwa</th>
