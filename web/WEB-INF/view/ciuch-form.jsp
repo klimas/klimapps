@@ -4,8 +4,6 @@
 <head>
     <title>Ciuch Form</title>
 
-
-
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
     <link type="text/css" rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/add-form-style.css">
@@ -46,7 +44,6 @@
                     <td><label>Wymiary paczki</label></td>
                     <td><label><form:input path="wymiaryPaczki"/></label></td>
                 </tr>
-
                 <tr>
                     <td><label></label></td>
                     <td><label><input type="submit" value="Submit"/></label></td>

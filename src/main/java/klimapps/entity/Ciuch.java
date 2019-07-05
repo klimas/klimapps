@@ -14,7 +14,7 @@ public class Ciuch {
     @Id
     @Column(name = "idciuchy")
     @GeneratedValue(strategy = IDENTITY)
-    private Integer ciuchid;
+    private int ciuchid;
 
     @Column(name = "nazwa")
     private String nazwa;
@@ -22,9 +22,12 @@ public class Ciuch {
     @Column(name = "ciuch_index")
     private String index;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_statusid")
-    private Status status;
+
+   //@ManyToOne(cascade=CascadeType.ALL)
+@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+@JoinColumn(name = "id_statusid")
+   private Status status;
+
 
     @Column(name = "nr_listu")
     private Integer nrListu;
@@ -70,6 +73,14 @@ public class Ciuch {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+
+
+    public void setCiuchid(int ciuchid) {
+        this.ciuchid = ciuchid;
+    }
+
+
 
     public Integer getNrListu() {
         return nrListu;
