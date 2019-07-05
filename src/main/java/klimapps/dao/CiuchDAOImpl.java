@@ -42,10 +42,10 @@ public class CiuchDAOImpl implements CiuchDAO {
 
     @Override
     @Transactional
-    public void saveCiuch(Ciuch ciuch) {
+    public void saveCiuch(Ciuch ciuch, Integer statusId) {
 
         Session session = sessionFactory.getCurrentSession();
-
+        ciuch.setStatus(session.load(Status.class, statusId));
         session.saveOrUpdate(ciuch);
     }
 

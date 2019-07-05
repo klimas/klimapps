@@ -2,6 +2,7 @@ package klimapps.controller;
 
 import klimapps.dao.CiuchDAO;
 import klimapps.entity.Ciuch;
+import klimapps.entity.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,8 +48,7 @@ public class CiuchController {
     @PostMapping("/saveCiuch")
     public String saveCiuch(@ModelAttribute("ciuch") Ciuch ciuch) {
 
-        ciuchDAO.saveCiuch(ciuch);
-
+        ciuchDAO.saveCiuch(ciuch, Status.PRZYGOTOWANY);
         System.out.println("SAVE TO DB!");
         System.out.println("Ciuch name: " + ciuch.getNazwa() + ", Index: " + ciuch.getIndex() );
 

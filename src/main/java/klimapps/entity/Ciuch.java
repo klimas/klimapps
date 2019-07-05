@@ -26,8 +26,6 @@ public class Ciuch {
     @JoinColumn(name = "id_statusid")
     private Status status;
 
-
-
     @Column(name = "nr_listu")
     private Integer nrListu;
 
@@ -104,7 +102,6 @@ public class Ciuch {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-
 
     public Ciuch() {
         this.index= IndexPrefix.dateToIndexPrefix();

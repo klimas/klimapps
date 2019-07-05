@@ -10,7 +10,7 @@ public interface CiuchDAO {
 
     List<Ciuch> getPrzygotowaneCiuchy();
 
-    void saveCiuch(Ciuch ciuch);
+    void saveCiuch(Ciuch ciuch, Integer statusId);
 
     void deleteCiuch(Integer ciuchId);
 

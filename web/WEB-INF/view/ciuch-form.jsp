@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <td><label>Status</label></td>
-                    <td><label><form:input path="status"/></label></td>
+                    <td><label>Przygotowana</label></td>
                  <%--<td>  <select name="status">--%>
                      <%--<option>1</option>--%>
                  <%--</select>--%>
@@ -47,12 +47,6 @@
                     <td><label><form:input path="wymiaryPaczki"/></label></td>
                 </tr>
 
-
-
-                <%--<tr>--%>
-                    <%--<td><label>Status:</label></td>--%>
-                    <%--<td><label><form:input path="status"/></label></td>--%>
-                <%--</tr>--%>
                 <tr>
                     <td><label></label></td>
                     <td><label><input type="submit" value="Submit"/></label></td>
