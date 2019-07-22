@@ -1,6 +1,7 @@
 package klimapps.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -21,6 +22,9 @@ public class Status {
 
     @Column(name = "nazwa")
     private String nazwa;
+
+    @OneToMany(targetEntity = Ciuch.class, mappedBy = "status")
+    private List<Ciuch> ciuches;
 
     public Status() {
     }

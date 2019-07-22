@@ -50,7 +50,7 @@ public class CiuchController {
 
         ciuchDAO.saveCiuch(ciuch, Status.PRZYGOTOWANY);
         System.out.println("SAVE TO DB!");
-        System.out.println("Ciuch name: " + ciuch.getNazwa() + ", Index: " + ciuch.getIndex() );
+        System.out.println("Ciuch name: " + ciuch.getNazwa() + ", Index: " + ciuch.getIndex());
 
         return "redirect:/ciuch/list";
     }
@@ -88,5 +88,12 @@ public class CiuchController {
     @RequestMapping("/")
     public String showMainMenu() {
         return "main-menu";
+    }
+
+    public String getCiuch(int ciuchId) {
+
+        Ciuch ciuch = ciuchDAO.getCiuch(ciuchId);
+
+        return ciuch.getNazwa();
     }
 }

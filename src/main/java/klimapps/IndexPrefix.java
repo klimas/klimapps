@@ -1,9 +1,20 @@
 package klimapps;
+
+import klimapps.controller.CiuchController;
+import klimapps.dao.CiuchDAO;
+import klimapps.entity.Ciuch;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import java.util.Date;
 /**
  * Created by Leko on 2019-07-04.
  */
+@Controller
 public class IndexPrefix {
+
+    @Autowired
+    private CiuchDAO ciuchDAO;
  //   public Date date = new Date();
 
 //    public static void main(String[] args) {
@@ -33,6 +44,11 @@ public class IndexPrefix {
         return indexPrefix;
     }
 
+
+    public static void main(String[] args) {
+        CiuchController ciuchController = new CiuchController();
+        System.out.println(ciuchController.saveCiuch(new Ciuch()));
+    }
 
 
 }

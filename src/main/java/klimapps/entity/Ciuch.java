@@ -24,8 +24,9 @@ public class Ciuch {
 
 
    //@ManyToOne(cascade=CascadeType.ALL)
-@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-@JoinColumn(name = "id_statusid")
+///*   @ManyToOne(fetch = FetchType.EAGER)
+   @ManyToOne(fetch = FetchType.EAGER)
+   @JoinColumn(name = "id_statusid")
    private Status status;
 
 
@@ -66,6 +67,7 @@ public class Ciuch {
         this.index = index;
     }
 
+
     public Status getStatus() {
         return status;
     }
@@ -74,13 +76,9 @@ public class Ciuch {
         this.status = status;
     }
 
-
-
     public void setCiuchid(int ciuchid) {
         this.ciuchid = ciuchid;
     }
-
-
 
     public Integer getNrListu() {
         return nrListu;
