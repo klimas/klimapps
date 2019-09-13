@@ -1,5 +1,6 @@
 package klimapps.controller;
 
+import klimapps.IndexPrefix;
 import klimapps.dao.CiuchDAO;
 import klimapps.entity.Ciuch;
 import klimapps.entity.Status;
@@ -8,19 +9,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/ciuch")
 public class CiuchController {
 
+
     @Autowired
     private CiuchDAO ciuchDAO;
+
+    private List<Ciuch> ciuchyNaMagazyn = new ArrayList<>();
+    private List<Ciuch> ciuchyDostepne = null;
+    private String latestId = IndexPrefix.getLatestCiuchIndex().toString();
 
     @RequestMapping("/showForm")
     public String showForm(Model model) {
 
-        Ciuch ciuch = new Ciuch();
+        Ciuch ciuch = new Ciuch(latestId);
         model.addAttribute("ciuch", ciuch);
 
         return "ciuch-form";
@@ -29,7 +36,7 @@ public class CiuchController {
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model model) {
 
-        Ciuch ciuch = new Ciuch();
+        Ciuch ciuch = new Ciuch(latestId);
         model.addAttribute("ciuch", ciuch);
 
         return "ciuch-form";
@@ -43,6 +50,33 @@ public class CiuchController {
         model.addAttribute("ciuch", ciuch);
 
         return "ciuch-form";
+    }
+
+    @GetMapping("/przeniesDoListy")
+    public String przeniesDoListy(@RequestParam("ciuchId") int ciuchId, Model model) {
+
+        Ciuch ciuch = ciuchDAO.getCiuch(ciuchId);
+        ciuchyDostepne.removeIf(a -> a.getCiuchid().equals(ciuchId));
+
+        ciuchyNaMagazyn.add(ciuch);
+
+        model.addAttribute("ciuchyPrzygotowane", ciuchyDostepne);
+        model.addAttribute("ciuchyNaMagazyn", ciuchyNaMagazyn);
+
+        return "wyslij-na-magazyn";
+    }
+
+    @GetMapping("/usunZListy")
+    public String usunZListy(@RequestParam("ciuchId") int ciuchId, Model model) {
+
+        Ciuch ciuch = ciuchDAO.getCiuch(ciuchId);
+        ciuchyNaMagazyn.removeIf(a -> a.getCiuchid().equals(ciuchId));
+        ciuchyDostepne.add(ciuch);
+
+        model.addAttribute("ciuchyPrzygotowane", ciuchyDostepne);
+        model.addAttribute("ciuchyNaMagazyn", ciuchyNaMagazyn);
+
+        return "wyslij-na-magazyn";
     }
 
     @PostMapping("/saveCiuch")
@@ -78,9 +112,11 @@ public class CiuchController {
     @RequestMapping("/wyslijNaMagazyn")
     public String listStoredarticles(Model model) {
 
-        List<Ciuch> ciuchy = ciuchDAO.getPrzygotowaneCiuchy();
+        ciuchyDostepne = ciuchDAO.getPrzygotowaneCiuchy();
+        ciuchyDostepne.removeAll(ciuchyNaMagazyn);
 
-        model.addAttribute("ciuchyPrzygotowane", ciuchy);
+        model.addAttribute("ciuchyPrzygotowane", ciuchyDostepne);
+        model.addAttribute("ciuchyNaMagazyn", ciuchyNaMagazyn);
 
         return "wyslij-na-magazyn";
     }

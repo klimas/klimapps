@@ -1,8 +1,11 @@
 package klimapps;
 
-import klimapps.controller.CiuchController;
 import klimapps.dao.CiuchDAO;
 import klimapps.entity.Ciuch;
+import klimapps.entity.Status;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -45,10 +48,26 @@ public class IndexPrefix {
     }
 
 
-    public static void main(String[] args) {
-        CiuchController ciuchController = new CiuchController();
-        System.out.println(ciuchController.saveCiuch(new Ciuch()));
+    public static String getLatestCiuchIndex() {
+        SessionFactory factory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Ciuch.class)
+                .addAnnotatedClass(Status.class)
+                .buildSessionFactory();
+
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        String lastIndex = (String) session
+                .createQuery("select c.index from Ciuch c WHERE id = (select max(id) from Ciuch)")
+                .getSingleResult();
+        session.close();
+
+        return lastIndex;
     }
 
+    public static void main(String[] args) {
 
+        System.out.println("sss");
+
+    }
 }

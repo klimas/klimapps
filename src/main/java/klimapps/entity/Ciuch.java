@@ -1,7 +1,5 @@
 package klimapps.entity;
 
-import klimapps.IndexPrefix;
-
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -22,9 +20,6 @@ public class Ciuch {
     @Column(name = "ciuch_index")
     private String index;
 
-
-   //@ManyToOne(cascade=CascadeType.ALL)
-///*   @ManyToOne(fetch = FetchType.EAGER)
    @ManyToOne(fetch = FetchType.EAGER)
    @JoinColumn(name = "id_statusid")
    private Status status;
@@ -112,8 +107,8 @@ public class Ciuch {
         this.foto = foto;
     }
 
-    public Ciuch() {
-        this.index= IndexPrefix.dateToIndexPrefix();
+    public Ciuch(String index) {
+        this.index = index;
     }
 
 
