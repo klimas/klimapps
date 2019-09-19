@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * Created by Leko on 2019-07-04.
  */
-@Controller
+
 public class IndexPrefix {
 
     @Autowired
