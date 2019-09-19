@@ -22,7 +22,7 @@ public class CiuchController {
 
     private List<Ciuch> ciuchyNaMagazyn = new ArrayList<>();
     private List<Ciuch> ciuchyDostepne = null;
-    private String latestId = IndexPrefix.getLatestCiuchIndex().toString();
+    private String latestId = IndexPrefix.createNewPrefix();
 
     @RequestMapping("/showForm")
     public String showForm(Model model) {

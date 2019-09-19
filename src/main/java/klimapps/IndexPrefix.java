@@ -29,6 +29,10 @@ public class IndexPrefix {
 //    }
 
 
+
+
+
+
     public static int getTwoLastDigitsOfTheYear() {
         Date date = new Date();
         int twoLastDigits = date.getYear()-100;
@@ -65,9 +69,31 @@ public class IndexPrefix {
         return lastIndex;
     }
 
+    public static String getItemNumberFromIndex(String index) {
+      int  indexOfDash=  index.lastIndexOf("-");
+      String itemNumber = index.substring(indexOfDash+1,index.length());
+        System.out.println("Last item nr is: " + itemNumber);
+
+return itemNumber;
+    }
+
+    public static String createNewPrefix() {
+        String newPrefix;
+
+        int lastItemNumber = Integer.parseInt(getItemNumberFromIndex(getLatestCiuchIndex()));
+        int newItemNumber = lastItemNumber+1;
+
+        System.out.println("new item number is: " + newItemNumber);
+newPrefix = getTwoLastDigitsOfTheYear() + "-" + String.valueOf(newItemNumber);
+        System.out.println("new prefix is: " + newPrefix);
+        return newPrefix;
+    }
+
+
+
     public static void main(String[] args) {
 
-        System.out.println("sss");
+        System.out.println("New prefix is: " + createNewPrefix());
 
     }
 }

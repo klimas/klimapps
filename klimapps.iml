@@ -69,6 +69,7 @@
     <orderEntry type="library" name="spring-boot-devtools-2.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="org.apache.commons.io" level="project" />
     <orderEntry type="library" name="commons-fileupload-1.3.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.immutables:value:2.7.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven.plugins:maven-compiler-plugin:3.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-api:3.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-model:3.0" level="project" />
