@@ -28,6 +28,8 @@
             </tr>
             <c:forEach var="singleCiuch" items="${ciuchyPrzygotowane}">
                 <c:url var="dodajDoListy" value="/ciuch/przeniesDoListy">
+
+                    <%--        GDZIE JEST ZDEFINIOWANE value="/ciuch/przeniesDoListy" --%>
                     <c:param name="ciuchId" value="${singleCiuch.ciuchid}"/>
                 </c:url>
                 <%--                <c:url var="deleteLink" value="/ciuch/deleteCiuch">
@@ -54,7 +56,7 @@
             <h3>Do wyslania na magazyn</h3>
         </div>
         <%--        </div>--%>
-        <form:form action="wyslijZamowienie" modelAttribute="storedarticle">
+        <form:form action="saveStoredarticle" modelAttribute="storedarticle" method="POST">
             <table>
                 <tr>
                     <th>Nazwa</th>
@@ -84,18 +86,8 @@
                     </tr>
                 </c:forEach>
             </table>
-
-            <input type="submit" value="Zatwierdz wysylke"
-                   onclick="window.location.href='wyslijZamowienie'; return false;"/>
-
-
-            <%--<input type="button" value="Dodaj ciuch"--%>
-            <%--onclick="window.location.href='showFormForAdd'; return false;"--%>
-            <%--class="add-button"/>    --%>
-
-
-            <%--<input type="submit" value="Zatwierdz dostawe"--%>
-            <%--class="add-button"/>--%>
+            <input type="submit" value="Zatwierdz dostawe"
+                   class="add-button"/>
         </form:form>
     </div>
 </div>

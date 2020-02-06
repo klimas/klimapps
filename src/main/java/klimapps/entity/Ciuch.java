@@ -111,5 +111,7 @@ public class Ciuch {
         this.index = index;
     }
 
+    public Ciuch() {
 
+    }
 }

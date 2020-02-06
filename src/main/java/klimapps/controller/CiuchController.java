@@ -21,6 +21,7 @@ public class CiuchController {
     private CiuchDAO ciuchDAO;
 
     private List<Ciuch> ciuchyNaMagazyn = new ArrayList<>();
+    private List<Ciuch> doPrzyjeciaNaMagazyn = new ArrayList<>();
     private List<Ciuch> ciuchyDostepne = null;
     private String latestId = IndexPrefix.createNewPrefix();
 
@@ -89,6 +90,21 @@ public class CiuchController {
         return "redirect:/ciuch/list";
     }
 
+
+    @GetMapping("/wyslijZamowienie")
+    public String wyslijZamowienie() {
+
+        for (Ciuch ciuch : ciuchyNaMagazyn) {
+            ciuchDAO.saveCiuch(ciuch, Status.WYSLANO_NA_MAGAZYN);
+            System.out.println("zapisano ciuch: " + ciuch.getCiuchid() + " ze statusem WYSLANO NA MAGAZYN");
+//            ciuchyNaMagazyn.remove(ciuch);
+//            ciuchyNaMagazyn.removeIf(a -> a.getCiuchid().equals(ciuch.getCiuchid()));
+        }
+        ciuchyNaMagazyn.clear();
+        System.out.println("EFEKT");
+        return "redirect:/ciuch/list";
+    }
+
     @GetMapping("/deleteCiuch")
     public String deleteCiuch(@RequestParam("ciuchId") int ciuchId) {
 
@@ -120,6 +136,34 @@ public class CiuchController {
 
         return "wyslij-na-magazyn";
     }
+
+
+    // START START START START START START START wyslijNaMagazyn = przyjmijNaMagazyn
+    @RequestMapping("/przyjmijNaMagazyn")
+
+    public String listSentarticles(Model model) {
+
+        ciuchyDostepne = ciuchDAO.getWyslaneCiuchy();
+        ciuchyDostepne.removeAll(ciuchyNaMagazyn);
+
+        model.addAttribute("ciuchyPrzygotowane", ciuchyDostepne);
+        model.addAttribute("ciuchyNaMagazyn", ciuchyNaMagazyn);
+
+        return "wyslij-na-magazyn";
+    }
+
+    @RequestMapping("/saveStoredarticle")
+
+    public String saveStoredarticle(@ModelAttribute("storedarticle") Ciuch theCiuch) {
+
+        System.out.println("theStudent: " + theCiuch.getNazwa() + " " + theCiuch.getIndex());
+
+
+        return "wyslij-na-magazyn";
+    }
+
+    // STOP STOP STOP STOP STOP STOP STOP STOP STOP STOP STOP STOP STOP STOP STOP STOP
+
 
     @RequestMapping("/")
     public String showMainMenu() {

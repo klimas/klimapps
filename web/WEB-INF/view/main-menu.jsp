@@ -22,6 +22,11 @@
 <br><br>
 <a href="ciuch/wyslijNaMagazyn">Wyslij na magazyn</a>
 <br><br>
+
+<a href="ciuch/przyjmijNaMagazyn">Przyjmij na magazyn</a>
+<br><br>
+
+
 <%--<a href="storedarticle/showFormForAdd">Add article to storage</a>--%>
 <br><br>
 <a href="import">Import Allegro CSV</a>

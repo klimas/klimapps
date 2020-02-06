@@ -42,6 +42,21 @@ public class CiuchDAOImpl implements CiuchDAO {
 
     @Override
     @Transactional
+    public List<Ciuch> getWyslaneCiuchy() {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query<Ciuch> query = currentSession.createQuery("from Ciuch where status.id =:status order by ciuchid", Ciuch.class)
+                .setParameter("status", Status.WYSLANO_NA_MAGAZYN);
+
+        return query.list();
+    }
+
+
+
+
+    @Override
+    @Transactional
     public void saveCiuch(Ciuch ciuch, Integer statusId) {
 
         Session session = sessionFactory.getCurrentSession();
